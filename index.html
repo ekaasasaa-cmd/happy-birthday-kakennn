@@ -129,10 +129,10 @@
     <!-- AUDIO PEMUTAR LAGU -->
 <!-- Ganti 'lagu-ultah.mp3' sesuai nama file musikmu di GitHub -->
 <audio id="bg-music" loop>
-    <source src="lagu-ultah.mp3" type="audio/mpeg">
+    <source src="https://cdn.discordapp.com/attachments/1447585397935837234/1514617111178117260/The_1975_-_About_You_Lyrics_-_azkas_playlist.mp3?ex=6a2c049b&is=6a2ab31b&hm=344434059e6a4ff0a1c24c848717c6c9a96ce405f3b29ca7979048fd641b2139&" type="audio/mpeg">
 </audio>
     <audio id="ringtone-music" loop>
-    <source src="nada-telepon.mp3" type="audio/mpeg">
+    <source src="https://cdn.discordapp.com/attachments/1447585397935837234/1514617111539089528/iPHONE_RINGTONE_CALLING_SOUND_EFFECT_-_YOUTUBE_THING.mp3?ex=6a2c049b&is=6a2ab31b&hm=edd03176ab4b4f5d08ea8324e0c2e3aeb8260fc3d3c29df0116c76a88a1d7df4&" type="audio/mpeg">
     </audio>
     
     
@@ -143,13 +143,15 @@
         </div>
         <h2>helluw kaaa 0_0</h2>
         <div class="btn-container">
-            <button class="btn-yes" onclick="showPage('page2')"helluuw!</button>
+            <button class="btn-yes" onclick="startWeb()">helluuw!</button>
+        
             
       </div>
     </div>
 
     <!-- HALAMAN 2: PANGGILAN MASUK -->
-    <div class="card page active" id="page2">
+    <div class="card page" id="page2">
+        
         <div class="gif-container">
             <img src="f6b3142d83381dc84598d8ab218d96a6.gif" alt="your birthday is calling">
         </div>
@@ -223,29 +225,35 @@
             <button class="btn-yes" onclick="location.reload()">Start Over</button>
         </div>
     </div>
-<script>
+    <script>
     function showPage(pageId) {
         const pages = document.querySelectorAll('.page');
         pages.forEach(p => p.classList.remove('active'));
         document.getElementById(pageId).classList.add('active');
     }
 
-    // 1. Fungsi pas klik tombol pertama (menyapa), ringtone mulai bunyi
+    // 1. Fungsi pas klik tombol "helluuw!" (Lagu utama & Ringtone jalan bareng)
     function startWeb() {
+        const bgMusic = document.getElementById('bg-music');
         const ringtone = document.getElementById('ringtone-music');
-        ringtone.play().catch(error => console.log("Audio tertahan:", error));
+        
+        // Putar lagu utama (The 1975)
+        bgMusic.play().catch(error => console.log("Lagu utama tertahan:", error));
+        
+        // Putar ringtone telepon masuk
+        ringtone.play().catch(error => console.log("Ringtone tertahan:", error));
+        
         showPage('page2'); // Pindah ke halaman Panggilan Masuk
     }
 
-    // 2. Fungsi pas klik "Yes!" di panggilan masuk, ringtone mati, lagu utama mulai
+    // 2. Fungsi pas klik "Yes!" (Matiin ringtone aja, lagu utama tetap bunyi)
     function pickUpCall() {
         const ringtone = document.getElementById('ringtone-music');
-        const bgMusic = document.getElementById('bg-music');
         
-        ringtone.pause(); // Matiin suara telpon masuk
-        ringtone.currentTime = 0; // Reset biar balik ke awal ceritanya
+        ringtone.pause(); // Matikan suara ringtone telepon saja
+        ringtone.currentTime = 0; // Reset ringtone ke awal
         
-        bgMusic.play().catch(error => console.log("Lagu utama tertahan:", error)); // Putar lagu utama
-        showPage('page3'); // Pindah ke halaman "Next ✨"
+        showPage('page3'); // Pindah ke halaman "Next ✨" (Lagu utama tetap nyala)
     }
-</script>
+    </script>
+    
