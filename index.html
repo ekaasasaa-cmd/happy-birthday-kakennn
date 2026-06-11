@@ -126,17 +126,14 @@
     </style>
 </head>
 <body>
-    <!-- AUDIO PEMUTAR LAGU -->
-<!-- Ganti 'lagu-ultah.mp3' sesuai nama file musikmu di GitHub -->
-<audio id="bg-music" loop>
-    <source src="https://cdn.discordapp.com/attachments/1447585397935837234/1514617111178117260/The_1975_-_About_You_Lyrics_-_azkas_playlist.mp3?ex=6a2c049b&is=6a2ab31b&hm=344434059e6a4ff0a1c24c848717c6c9a96ce405f3b29ca7979048fd641b2139&" type="audio/mpeg">
-</audio>
+
+    <audio id="bg-music" loop>
+        <source src="https://cdn.discordapp.com/attachments/1447585397935837234/1514617111178117260/The_1975_-_About_You_Lyrics_-_azkas_playlist.mp3?ex=6a2c049b&is=6a2ab31b&hm=344434059e6a4ff0a1c24c848717c6c9a96ce405f3b29ca7979048fd641b2139&" type="audio/mpeg">
+    </audio>
     <audio id="ringtone-music" loop>
-    <source src="https://cdn.discordapp.com/attachments/1447585397935837234/1514617111539089528/iPHONE_RINGTONE_CALLING_SOUND_EFFECT_-_YOUTUBE_THING.mp3?ex=6a2c049b&is=6a2ab31b&hm=edd03176ab4b4f5d08ea8324e0c2e3aeb8260fc3d3c29df0116c76a88a1d7df4&" type="audio/mpeg">
+        <source src="https://cdn.discordapp.com/attachments/1447585397935837234/1514617111539089528/iPHONE_RINGTONE_CALLING_SOUND_EFFECT_-_YOUTUBE_THING.mp3?ex=6a2c049b&is=6a2ab31b&hm=edd03176ab4b4f5d08ea8324e0c2e3aeb8260fc3d3c29df0116c76a88a1d7df4&" type="audio/mpeg">
     </audio>
     
-    
-  <!-- HALAMAN 1: menyapa -->
     <div class="card page active" id="page1">
         <div class="gif-container">
             <img src="b0d75d1e8b7a5c79773cb75b6829d486.gif" alt="helluuww kaa!">
@@ -144,14 +141,10 @@
         <h2>helluw kaaa 0_0</h2>
         <div class="btn-container">
             <button class="btn-yes" onclick="startWeb()">helluuw!</button>
-        
-            
-      </div>
+        </div>
     </div>
 
-    <!-- HALAMAN 2: PANGGILAN MASUK -->
     <div class="card page" id="page2">
-        
         <div class="gif-container">
             <img src="f6b3142d83381dc84598d8ab218d96a6.gif" alt="your birthday is calling">
         </div>
@@ -162,7 +155,6 @@
         </div>
     </div>
 
-    <!-- HALAMAN ERROR (JIKA KLIK NO) -->
     <div class="card page" id="page-error">
         <div class="gif-container">
             <img src="659781f6460a12ea529eb0bf195f9cc9.gif" alt="cry">
@@ -174,36 +166,30 @@
         </div>
     </div>
 
-    <!-- HALAMAN 2: MENUJU KE HALAMAN FOTO -->
     <div class="card page" id="page3">
         <div class="gif-container">
-            <img src="bf61408e0bdac19b784b38e5a4538004.gif" alt="gift">
+            <img src="bf61408e0bdadac19b784b38e5a4538004.gif" alt="gift">
         </div>
         <h2 style="color: #ff4d6d;">can u click me again?</h2>
         <p>LET'S GO TO THE GIFT! 🍒</p>
         <div class="btn-container">
-            <!-- Klik ini untuk langsung masuk ke Halaman 3 (Foto) -->
             <button class="btn-yes" onclick="showPage('page4')">Next ✨</button>
         </div>
     </div>
 
-    <!-- HALAMAN 3: FOTO LIA DAN KETERANGAN HAPPY BIRTHDAY -->
     <div class="card page" id="page4">
         <h2 style="color: #9c3d54; margin-bottom: 15px;">it's your day!</h2>
         <div class="personal-photo-container">
-            <!-- ⚠️ GANTI 'foto-lia.jpg' dengan nama file foto asli yang kamu upload di GitHub -->
             <img src="WA_1781180018323.jpeg" alt="Foto kakenn" class="personal-photo">
         </div>
         <div class="hbd-caption">
             HAPPY BIRTHDAY KAKENNN💖
         </div>
         <div class="btn-container">
-            <!-- Klik ini untuk lanjut ke Halaman 4 (Pesan Terakhir) -->
             <button class="btn-yes" onclick="showPage('page5')">Open me!💌</button>
         </div>
     </div>
 
-    <!-- HALAMAN 4: PESAN & UCAPAN AKHIR -->
     <div class="card page" id="page5">
         <div class="gif-container">
             <img src="327b29d501c1da2cf5f2272066528fab.gif" alt="confetti">
@@ -225,6 +211,7 @@
             <button class="btn-yes" onclick="location.reload()">Start Over</button>
         </div>
     </div>
+
     <script>
     function showPage(pageId) {
         const pages = document.querySelectorAll('.page');
@@ -256,4 +243,6 @@
         showPage('page3'); // Pindah ke halaman "Next ✨" (Lagu utama tetap nyala)
     }
     </script>
+</body>
+    </html>
     
