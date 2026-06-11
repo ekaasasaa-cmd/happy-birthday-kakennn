@@ -126,6 +126,16 @@
     </style>
 </head>
 <body>
+    <!-- AUDIO PEMUTAR LAGU -->
+<!-- Ganti 'lagu-ultah.mp3' sesuai nama file musikmu di GitHub -->
+<audio id="bg-music" loop>
+    <source src="lagu-ultah.mp3" type="audio/mpeg">
+</audio>
+    <audio id="ringtone-music" loop>
+    <source src="nada-telepon.mp3" type="audio/mpeg">
+    </audio>
+    
+    
   <!-- HALAMAN 1: menyapa -->
     <div class="card page active" id="page1">
         <div class="gif-container">
@@ -133,7 +143,8 @@
         </div>
         <h2>helluw kaaa 0_0</h2>
         <div class="btn-container">
-            <button class="btn-yes" onclick="showPage('page2')">haloo!</button>
+            <button class="btn-yes" onclick="showPage('page2')"helluuw!</button>
+            
       </div>
     </div>
 
@@ -144,7 +155,7 @@
         </div>
         <h2>your birthday is calling, wanna pick up the call? 0_0</h2>
         <div class="btn-container">
-            <button class="btn-yes" onclick="showPage('page2')">Yes!</button>
+            <button class="btn-yes" onclick="pickUpCall()">Yes!</button>
             <button class="btn-no" onclick="showPage('page-error')">No</button>
         </div>
     </div>
@@ -156,8 +167,8 @@
         </div>
         <h2>awhh try again pls, i think this web is error TwT</h2>
         <div class="btn-container">
-            <button class="btn-yes" onclick="showPage('page2')">Yes!</button>
-            <button class="btn-no" onclick="showPage('page1')">No</button>
+            <button class="btn-yes" onclick="startWeb()">Yes!</button>
+            <button class="btn-no" onclick="showPage('page2')">No</button>
         </div>
     </div>
 
@@ -170,7 +181,7 @@
         <p>LET'S GO TO THE GIFT! 🍒</p>
         <div class="btn-container">
             <!-- Klik ini untuk langsung masuk ke Halaman 3 (Foto) -->
-            <button class="btn-yes" onclick="showPage('page3')">Next ✨</button>
+            <button class="btn-yes" onclick="showPage('page4')">Next ✨</button>
         </div>
     </div>
 
@@ -186,7 +197,7 @@
         </div>
         <div class="btn-container">
             <!-- Klik ini untuk lanjut ke Halaman 4 (Pesan Terakhir) -->
-            <button class="btn-yes" onclick="showPage('page4')">Open me!💌</button>
+            <button class="btn-yes" onclick="showPage('page5')">Open me!💌</button>
         </div>
     </div>
 
@@ -206,20 +217,35 @@
             <br><br>
             di ulang tahunmu ini, aku berharap semua hal baik pelan-pelan mendekat ke kamu. semoga langkahmu selalu dipermudah, hatimu selalu dikuatkan, dan mimpimu satu per satu terwujud.
             <br><br>
-            <span style="color: #ff758f; font-weight: bold;">- from sasacc</span>
+            <span style="color: #ff758f; font-weight: bold;">- from kayecc</span>
         </div>
         <div class="btn-container">
             <button class="btn-yes" onclick="location.reload()">Start Over</button>
         </div>
     </div>
+<script>
+    function showPage(pageId) {
+        const pages = document.querySelectorAll('.page');
+        pages.forEach(p => p.classList.remove('active'));
+        document.getElementById(pageId).classList.add('active');
+    }
 
-    <script>
-        function showPage(pageId) {
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(p => p.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-        }
-    </script>
-</body>
-    </html>
-                
+    // 1. Fungsi pas klik tombol pertama (menyapa), ringtone mulai bunyi
+    function startWeb() {
+        const ringtone = document.getElementById('ringtone-music');
+        ringtone.play().catch(error => console.log("Audio tertahan:", error));
+        showPage('page2'); // Pindah ke halaman Panggilan Masuk
+    }
+
+    // 2. Fungsi pas klik "Yes!" di panggilan masuk, ringtone mati, lagu utama mulai
+    function pickUpCall() {
+        const ringtone = document.getElementById('ringtone-music');
+        const bgMusic = document.getElementById('bg-music');
+        
+        ringtone.pause(); // Matiin suara telpon masuk
+        ringtone.currentTime = 0; // Reset biar balik ke awal ceritanya
+        
+        bgMusic.play().catch(error => console.log("Lagu utama tertahan:", error)); // Putar lagu utama
+        showPage('page3'); // Pindah ke halaman "Next ✨"
+    }
+</script>
